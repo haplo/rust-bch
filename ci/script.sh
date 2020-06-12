@@ -3,16 +3,39 @@
 
 set -ex
 
+# ----- Options -----
+
+# TARGET enables cross-building
+if [ -z $TARGET ]; then
+    CARGO=cargo
+elif [ "$TARGET" = "i686-unknown-linux-musl" ]; then
+    CARGO=cargo
+    TARGET="--target $TARGET"
+else
+    CARGO=cross
+    TARGET="--target $TARGET"
+fi
+
+# ALLOC defaults on; is disabled for rustc < 1.36
+if [ -z $ALLOC ]; then
+    ALLOC=1
+fi
+
+# NIGHTLY defaults off
+
+
+# ----- Script -----
+
 main() {
-    cross build --target $TARGET
-    cross build --target $TARGET --release
+    $CARGO build $TARGET
+    $CARGO build $TARGET --release
 
     if [ ! -z $DISABLE_TESTS ]; then
         return
     fi
 
-    cross test --target $TARGET
-    cross test --target $TARGET --release
+    $CARGO test $TARGET
+    $CARGO test $TARGET --release
 }
 
 # we don't run the "test phase" when doing deploys

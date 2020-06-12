@@ -7,15 +7,17 @@ sudo: false
 matrix:
   include:
     - rust: 1.32.0
-      name: "Linux, 1.32.0"
       os: linux
+      name: "Linux, 1.32.0"
 
     - rust: stable
+      os: linux
       name: "Linux, stable"
 
     - rust: stable
-      name: "OSX+iOS, stable"
       os: osx
+      name: "OSX+iOS, stable"
+      env: TARGET=x86_64-apple-darwin
       install:
         - rustup target add aarch64-apple-ios
       script:
