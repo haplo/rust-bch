@@ -19,7 +19,7 @@ matrix:
       install:
         - rustup target add aarch64-apple-ios
       script:
-        - bash utils/ci/script.sh
+        - bash ci/script.sh
         - cargo build --target=aarch64-apple-ios
 
     - rust: nightly
