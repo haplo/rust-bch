@@ -34,6 +34,10 @@ Patches welcome!
 
 Add ```bch = "0.2.0"``` to *Cargo.toml* in your project.
 
+# Changelog
+
+See [CHANGELOG](CHANGELOG.md).
+
 # Known limitations
 
 This library should not be used for consensus code because its validation checks are incomplete.
