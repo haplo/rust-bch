@@ -1,3 +1,5 @@
+[![Status](https://travis-ci.org/haplo/rust-bch.png?branch=master)](https://travis-ci.org/haplo/rust-bch)
+
 # Rust-BCH
 
 A library to build Bitcoin Cash (BCH) applications in Rust.
