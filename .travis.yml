@@ -6,27 +6,27 @@ sudo: false
 
 matrix:
   include:
-    - rust: 1.32.0
-      os: linux
-      name: "Linux, 1.32.0"
+    # - rust: 1.32.0
+    #   os: linux
+    #   name: "Linux, 1.32.0"
 
     - rust: stable
       os: linux
       name: "Linux, stable"
 
-    - rust: stable
-      os: osx
-      name: "OSX+iOS, stable"
-      env: TARGET=x86_64-apple-darwin
-      install:
-        - rustup target add aarch64-apple-ios
-      script:
-        - bash ci/script.sh
-        - cargo build --target=aarch64-apple-ios
+    # - rust: stable
+    #   os: osx
+    #   name: "OSX+iOS, stable"
+    #   env: TARGET=x86_64-apple-darwin
+    #   install:
+    #     - rustup target add aarch64-apple-ios
+    #   script:
+    #     - bash ci/script.sh
+    #     - cargo build --target=aarch64-apple-ios
 
-    - rust: nightly
-      os: linux
-      name: "Linux, nightly"
+    # - rust: nightly
+    #   os: linux
+    #   name: "Linux, nightly"
 
 before_install:
   - set -e
